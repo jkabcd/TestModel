@@ -1,0 +1,47 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:id="@+id/cl_main"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent" >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/abl_title"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"><!--展开后的height150dp   布局的根部控件必须是CoordinatorLayouter
+                                     而且CollapsingToolbarLayout，是以AppBarLayout作为父控件（折叠后的总高度）
+                                     以Toolbar作为子控件（折叠后的高度）-->
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ctl_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="#ffffff"
+            app:collapsedTitleGravity="left"
+            app:expandedTitleGravity="bottom"
+            app:title="图片"><!--折叠后的背景-->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.5"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" /><!--设置视觉差：layout_collapseMode="parallax
+                                                             效果：layout_collapseParallaxMultiplier="0.5"-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tl_title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_scrollFlags="scroll|enterAlways" /><!--折叠后的height30dp 注意点：这边设置的Height 必须是比AppBarLayout的高度 - ImageView的高度小，否则不会滑动 -->
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout><!-- 在折叠控件下面的控件必须要满屏才能显示-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>
