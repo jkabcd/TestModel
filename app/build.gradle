@@ -37,13 +37,14 @@ android {
             }
         }
     }
-    productFlavors{
+    productFlavors {
         wandoujia {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
         }
 
         baidu {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]       }
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
 
         c360 {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
@@ -54,9 +55,11 @@ android {
         }
     }
 }
+
 def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

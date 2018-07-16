@@ -2,8 +2,6 @@ package yuncar.aten.com.lay;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +44,7 @@ public class MainActivity6 extends AppCompatActivity {
 
     private void init() {
 //        mRecyclerView.setLayoutManager(new CardLayoutManager(mGroupSize, true));\
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity6.this, OrientationHelper.VERTICAL,false));
+        mRecyclerView.setLayoutManager(new AlNyLayoutManager());
         mRecyclerView.setAdapter(mAdapter);
     }
 
