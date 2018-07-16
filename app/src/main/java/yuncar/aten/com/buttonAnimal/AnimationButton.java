@@ -87,7 +87,8 @@ public class AnimationButton extends View {
         paint.setTextAlign(Paint.Align.CENTER);
         Paint.FontMetricsInt fontMetrics = paint.getFontMetricsInt();
         float baseline = (rect.bottom + rect.top - fontMetrics.bottom - fontMetrics.top) / 2;
-        canvas.drawText("国你qwerty国",rect.centerX(),baseline,paint);//矩形内居中
+        //矩形内居中
+        canvas.drawText("国你qwerty国",rect.centerX(),baseline,paint);
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
 //        canvas.drawPath(okpath,paint);
