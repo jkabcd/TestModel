@@ -11,5 +11,14 @@ public class Main5Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
+        stat(1);
+    }
+
+
+    /**
+     * @param ss 用于141
+     */
+    public void stat(int ss){
+
     }
 }
