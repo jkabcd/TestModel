@@ -8,5 +8,7 @@ package yuncar.aten.com.mymode;
  */
 
 public class asld {
-    public void show(){}
+public  void show(){
+
+};
 }
