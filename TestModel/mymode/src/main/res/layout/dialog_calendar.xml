@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              xmlns:calendarview="http://schemas.android.com/apk/res-auto"
+              xmlns:weekview="http://schemas.android.com/apk/res-auto"
+              android:layout_width="300dp"
+              android:background="@drawable/border_calentop_corner_bg"
+              android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="签到日历"
+        android:gravity="center"
+        android:layout_height="55dp"/>
+        <View
+            android:layout_width="wrap_content"
+            android:background="@android:color/white"
+            android:layout_height="15dp"></View>
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_left"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_date_left_bg"/>
+
+        <TextView
+            android:id="@+id/tv_datemonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="2018年04月"
+            android:textColor="#333333"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_date_right_bg"/>
+    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_countday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="已连续签到1天"
+            android:textColor="#f39700"
+            android:textSize="12sp"/>
+    <yuncar.aten.com.mymode.calendarView.weiget.WeekView
+        android:layout_width="match_parent"
+        weekview:week_color="#999999"
+        weekview:week_size="16"
+        android:layout_height="35dp" />
+
+    <yuncar.aten.com.mymode.calendarView.weiget.CalendarView
+        android:id="@+id/calendar"
+        calendarview:show_holiday="false"
+        calendarview:show_lunar="false"
+        calendarview:show_term="false"
+        android:layout_width="match_parent"
+        android:paddingBottom="10dp"
+        android:layout_height="180dp"
+        android:background="@drawable/border_calenbuttom_corner_bg"
+        calendarview:choose_type="multi" />
+    </LinearLayout>
+</LinearLayout>
