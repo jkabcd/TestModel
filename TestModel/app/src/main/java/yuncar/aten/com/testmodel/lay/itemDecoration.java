@@ -30,7 +30,9 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
             View view = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) view.getLayoutParams();
             int position = params.getViewLayoutPosition();
-            drawTitleArea(c,parent.getLeft(),parent.getRight(),view,params,position);
+            if(isfirst(position)){
+                drawTitleArea(c,parent.getLeft(),parent.getRight(),view,params,position);
+            }
         }
     }
 
@@ -73,21 +75,12 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
             int position =  parent.getChildAdapterPosition(view);
             if(isfirst(position)){
                 int tope =  Math.max(divheight,bottom+parent.getPaddingTop());
-//             if(position+1<=state.getItemCount()){
                 Paint.FontMetrics fm = mTextPaint.getFontMetrics();
                 float baseLine = tope - (100 - (fm.bottom - fm.top)) / 2 - fm.bottom;
                 c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getRight() - parent.getPaddingRight(), parent.getPaddingTop() + divheight, paint);
-//                c.drawRect(left,baseLine-25,right,baseLine+25,paint);
-//                c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getRight() - parent.getPaddingRight(), parent.getPaddingTop() + divheight, paint);
-//                c.drawText("asdfasdjfla", left, baseLine, mTextPaint);
-                c.drawText("asdfasdjfla", view.getPaddingLeft()+100,
-                        parent.getPaddingTop() + divheight - (divheight / 2 - mBounds.height() / 2),
-                        mTextPaint);
-//        c.drawText("asdfasdjfla", 0,
-//                parent.getPaddingTop() + divheight - (divheight / 2 - view.getHeight()/ 2),
-//                mTextPaint);
-//             }
+                c.drawText("asdfasdjfla", parent.getPaddingLeft()+100, parent.getPaddingTop() + divheight - (divheight / 2 - mBounds.height() / 2), mTextPaint);
             }else {
+
                 c.drawRect(left,bottom-2,right,bottom,paint);
             }
         }
@@ -109,11 +102,8 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
         mTextPaint.setTextSize(30);
         mTextPaint.setColor(Color.BLACK);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-/*
-        Paint.FontMetricsInt fontMetrics = mPaint.getFontMetricsInt();
-        int baseline = (getMeasuredHeight() - fontMetrics.bottom + fontMetrics.top) / 2 - fontMetrics.top;*/
         mTextPaint.getTextBounds("lkjasdlkjl", 0, "lkjasdlkjl".length(), mBounds);
-        c.drawText("lkjasdlkjl", child.getPaddingLeft(), child.getTop() - params.topMargin - (divheight / 2 - mBounds.height() / 2), mTextPaint);
+        c.drawText("lkjasdlkjl", child.getPaddingLeft()+200, child.getTop() - params.topMargin - (divheight / 2 - mBounds.height() / 2), mTextPaint);
     }
 
 }

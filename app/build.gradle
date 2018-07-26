@@ -30,7 +30,7 @@ android {
                         } else {
 //                    fileName = "app_v${defaultConfig.versionName}_${packageTime()}_beta.apk"
                             fileName = "yuncar_v${defaultConfig.versionName}_${variant.productFlavors[0].name}_${releaseTime()}_beta.apk"
-                        }
+                        } 
                         output.outputFile = new File(outputDirectory, fileName)
                     }
                 }
