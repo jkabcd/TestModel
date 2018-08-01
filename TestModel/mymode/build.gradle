@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin:'maven'
 apply plugin: 'com.novoda.bintray-release'
+apply from: 'config/settings.gradle'
 
 android {
     compileSdkVersion 25

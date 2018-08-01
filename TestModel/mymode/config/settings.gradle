@@ -1,0 +1,9 @@
+ext{
+    configs = [
+    userOrg = 'jack2016',
+    groupId = 'yuncar.aten.com.mymode',
+    artifactId = 'atengModel',
+    version = '1.0.7',
+    description = 'new function PermissionUtils'
+    ]
+}

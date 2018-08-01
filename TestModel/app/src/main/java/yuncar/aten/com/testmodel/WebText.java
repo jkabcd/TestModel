@@ -29,7 +29,6 @@ public class WebText extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_re);
-
         requestMorePermissions();
         Glide.with(WebText.this).load(new File("")).asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override

@@ -33,7 +33,7 @@ public class BarActivity extends AppCompatActivity implements AdapterView.OnItem
                 .setImageLoader(new GlideImageLoader())
                 .setOnBannerListener(BarActivity.this)
                 .start();
-        banner.updateBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
+        banner.updateBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
     }
 
     @Override

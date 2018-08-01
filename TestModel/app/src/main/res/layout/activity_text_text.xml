@@ -4,7 +4,7 @@
               xmlns:stv="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:gravity="center"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/lv_1"
         android:gravity="center_vertical"
@@ -53,7 +53,7 @@
     android:id="@+id/tes"
     android:layout_height="80dp"
     stv:sCenterBottomTextColor="@color/colorAccent"
-    stv:sCenterBottomTextString="限额说明1111111111111111111111111111111111"
+    stv:sCenterBottomTextString="限额说明"
     stv:sCenterBottomLines="1"
     stv:sCenterTopTextString="abc"
     stv:sCenterViewGravity="left_center"
@@ -61,7 +61,7 @@
     stv:sRightTopTextString="  "
     stv:sLeftBottomTextString="招商银行（8888）"
     stv:sLeftIconRes="@mipmap/ic_launcher"
-    stv:sLeftTopTextString="银行卡支付111111111111111111111111111111111111111111111111"
+    stv:sLeftTopTextString="银行卡支付"
     stv:sLeftViewGravity="left_center"
     stv:sRightCheckBoxRes="@null"
     stv:sDividerLineColor="@android:color/holo_purple"
