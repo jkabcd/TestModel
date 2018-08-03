@@ -78,6 +78,11 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
 
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) parent.getLayoutManager();
        int view_visiable_position = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+       View vvvv = linearLayoutManager.getChildAt(1);
+        if(vvvv!=null){
+           TextView vvvv2= (TextView) vvvv.findViewById(R.id.text);
+            Log.e("ss","daaoer：..."+vvvv2.getText());
+        }
         if(null!=linearLayoutManager.getChildAt(view_visiable_position)){
             TextView textView = (TextView) linearLayoutManager.getChildAt(view_visiable_position).findViewById(R.id.text);
             Log.e("ss","数据：..."+textView.getText());
