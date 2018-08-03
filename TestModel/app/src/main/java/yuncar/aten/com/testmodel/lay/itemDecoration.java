@@ -4,10 +4,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
+import yuncar.aten.com.testmodel.R;
 
 /**
  * project:TestModel
@@ -20,6 +24,8 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
     int divheight=60;
     private TextPaint mTextPaint;
     private Rect mBounds;
+    private int tope;
+
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
@@ -69,21 +75,43 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
         final  int left = parent.getLeft();
         final  int right = parent.getRight();
         int childcount =   parent.getChildCount();
-        for (int i = 0; i < childcount; i++) {
-            View view = parent.getChildAt(i);
-            final int bottom =   view.getTop();
-            int position =  parent.getChildAdapterPosition(view);
-            if(isfirst(position)){
-                int tope =  Math.max(divheight,bottom+parent.getPaddingTop());
-                Paint.FontMetrics fm = mTextPaint.getFontMetrics();
-                float baseLine = tope - (100 - (fm.bottom - fm.top)) / 2 - fm.bottom;
-                c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getRight() - parent.getPaddingRight(), parent.getPaddingTop() + divheight, paint);
-                c.drawText("asdfasdjfla", parent.getPaddingLeft()+100, parent.getPaddingTop() + divheight - (divheight / 2 - mBounds.height() / 2), mTextPaint);
-            }else {
 
-                c.drawRect(left,bottom-2,right,bottom,paint);
-            }
+        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) parent.getLayoutManager();
+       int view_visiable_position = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+        if(null!=linearLayoutManager.getChildAt(view_visiable_position)){
+            TextView textView = (TextView) linearLayoutManager.getChildAt(view_visiable_position).findViewById(R.id.text);
+            Log.e("ss","数据：..."+textView.getText());
         }
+//        if(parent.getChildAt(view_visiable_position+1)!=null){
+//            Log.e("ccc","位置"+(view_visiable_position+1)+"数据"+parent.getChildAt(view_visiable_position+1).getTop());
+//        }
+       if(isfirst(view_visiable_position+1)){//判断可见的第二个数据是否不在同一组
+           if(parent.getChildAt(view_visiable_position)!=null){
+               tope = Math.max(divheight,parent.getChildAt(view_visiable_position).getTop());
+           }
+//           c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getRight() - parent.getPaddingRight(), parent.getPaddingTop() + divheight, paint);
+//           c.drawText("asdfasdjfla", parent.getPaddingLeft()+100, parent.getPaddingTop() + divheight - (divheight / 2 - mBounds.height() / 2), mTextPaint);
+       }else {//判断可见的第二个数据是在同一组
+           c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getRight() - parent.getPaddingRight(), parent.getPaddingTop() + divheight, paint);
+           c.drawText("asdfasdjfla", parent.getPaddingLeft()+100, parent.getPaddingTop() + divheight - (divheight / 2 - mBounds.height() / 2), mTextPaint);
+       }
+
+
+        Log.e("位置",linearLayoutManager.findFirstCompletelyVisibleItemPosition()+"寻求位置parent.getPaddingTop()");
+//        for (int i = 0; i < childcount; i++) {
+//            View view = parent.getChildAt(i);
+//            final int bottom =   view.getTop();
+//            int position =  parent.getChildAdapterPosition(view);
+//            if(isfirst(position)){
+//                int tope =  Math.max(divheight,bottom);
+//                Paint.FontMetrics fm = mTextPaint.getFontMetrics();
+//                float baseLine = tope - (100 - (fm.bottom - fm.top)) / 2 - fm.bottom;
+//                c.drawRect(parent.getPaddingLeft(), tope, parent.getRight() - parent.getPaddingRight(), tope + divheight, paint);
+//                c.drawText("asdfasdjfla", parent.getPaddingLeft()+100, baseLine, mTextPaint);
+//            }else {
+//                c.drawRect(left,bottom-2,right,bottom,paint);
+//            }
+//        }
     }
     public boolean isfirst(int posi){
         if(posi%3==0){
